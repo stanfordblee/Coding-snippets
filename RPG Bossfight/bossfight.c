@@ -10,6 +10,8 @@
 
 #define TEAM_SIZE 3
 #define MAX_LENGTH 100
+#define LUCKY_NUMBER_START 1
+#define LUCKY_NUMBER_END 8
 
 // Creating struct for character, used for both adventurer and boss
 struct character {
@@ -18,6 +20,8 @@ struct character {
 	int power;
 	int health;
 };
+
+int introduction(void);
 
 int randomise(void);
 
@@ -58,6 +62,8 @@ int main (void) {
 	boss.power = 25;
 	boss.health = 30;
 	
+    introduction();
+
 	// Entering a lucky number to decide srand
 	srand(randomise());
 	
@@ -85,19 +91,29 @@ int main (void) {
 	return 0;
 }
 
+int introduction(void){
+    printf("\nThe band of adventurers finally reach the end of the lava maze and are faced with an ashen expanse.\n");
+    printf("They hear a thunderous roar that trembles the charred ground beneath them. They steel themselves for the final battle.\n");
+    printf("The King Black Dragon emerges from the flames.\n");
+    printf("\nThe heroes recall that there were 8 magic symbols inscribed at the entrance of the maze. One of these was the key to defeating the dragon, but they did not know which one.\n");
+    printf("The dragon reared its armoured head and fixated its terrifying gaze on the four heroes, ready to strike.\n");
+    return 0;
+}
+
 // Lucky number that randomises attack values
 int randomise(void){
 	int lucky_number = 0;
 	int looper = 1;
 	while (looper) {
-		printf("Enter a lucky number between 1 to 100: ");
+		printf("\nWhich symbol was the right one?\n");
+        printf("Enter a number between 1 to 8: ");
 		scanf("%d", &lucky_number);
-		if (lucky_number >= 1 && lucky_number <= 100) {
-			printf("\n");
+		if (lucky_number >= LUCKY_NUMBER_START && lucky_number <= LUCKY_NUMBER_END) {
+			printf("\nThe adventurers chose the number %d!\n\n", lucky_number);
 			return lucky_number;
 			looper = 0;
 		} else {
-			printf("You have entered an invalid input!\n");
+			printf("There were %d symbols. Enter another number!\n", LUCKY_NUMBER_END);
 		}
 	}	
 	return 0;
@@ -143,10 +159,12 @@ void attack(struct character *attacker, struct character *defender) {
 
 // End of fight
 void end_fight(struct character *boss) {
-	printf("The battle has ended!\n");
+	printf("The battle has ended!\n\n");
 	if (boss->health <= 0) {
+        printf("The magic symbol the heroes selected was the right one!\n");
 		printf("The heroes are victorious! King Black Dragon has been defeated!\n");
 	} else {
+        printf("The magic symbol the heroes selected wasn't the right one!\n");
 		printf("The heroes have been defeated. King Black Dragon triumphs today!\n");
 	}
 }
