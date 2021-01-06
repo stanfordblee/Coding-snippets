@@ -31,10 +31,11 @@ void end_fight(struct character *boss);
 
 int main (void) {
 
+    // Create character structs
     struct character hero[TEAM_SIZE];
     struct character boss;
 
-    // Create individual characters
+    // Create individual character attributes
     create_chars(&boss, hero);
 	
     // Provide text introduction to the game
@@ -144,6 +145,7 @@ void attack(struct character *attacker, struct character *defender) {
 	}
 }
 
+// Triggers battle between characters by calling check and attack functions
 void battle(struct character *boss, struct character hero[TEAM_SIZE]){
     int current_hero = 0;
 	int round_counter = 1;
