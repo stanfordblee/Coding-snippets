@@ -83,7 +83,8 @@ int introduction(void){
     printf("\nThe band of adventurers finally reach the end of the lava maze and are faced with an ashen expanse.\n");
     printf("They hear a thunderous roar that trembles the charred ground beneath them. They steel themselves for the final battle.\n");
     printf("The King Black Dragon emerges from the flames.\n");
-    printf("\nThe heroes recall that there were 8 magic symbols inscribed at the entrance of the maze. One of these was the key to defeating the dragon, but they did not know which one.\n");
+    printf("\nThe heroes recall that there were 8 magic symbols inscribed at the entrance of the maze.");
+    printf("One of these was the key to defeating the dragon, but they did not know which one.\n");
     printf("The dragon reared its armoured head and fixated its terrifying gaze on the three heroes, ready to strike.\n");
     return 0;
 }
