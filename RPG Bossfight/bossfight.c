@@ -2,7 +2,7 @@
 // Created on 01/08/2020 by Stanford Lee
 //
 // User inputs a 'lucky number', and then simulation is executed
-// Heroes and boss attack simultaneously - if hero is defeated, switch to next hero
+// Heroes and boss attack sequentially - if hero is defeated, switch to next hero
 
 #include <stdio.h>
 #include <string.h>
@@ -159,7 +159,7 @@ void battle(struct character *boss, struct character hero[TEAM_SIZE]){
 			current_hero++;
 		}
 		
-		// Simultaneous attack!
+		// Sequential attack for each side, checking if alive before attacking
 		printf("*** Round %d! ***\n", round_counter);
 		attack(&hero[current_hero], boss);
         if(still_alive(boss, hero)){
