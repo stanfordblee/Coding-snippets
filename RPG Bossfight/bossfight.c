@@ -94,14 +94,17 @@ int randomise(void){
 	int looper = 1;
 	while (looper) {
 		printf("\nWhich symbol should the adventurers choose?\n");
-        printf("Enter a number between 1 to 8: ");
+        printf("[Enter a number between 1 to 8]: ");
 		scanf("%d", &lucky_number);
 		if (lucky_number >= LUCKY_NUMBER_START && lucky_number <= LUCKY_NUMBER_END) {
-			printf("\nThe adventurers chose the number %d!\n\n", lucky_number);
+			printf("\nThe adventurers chose the number %d!\n", lucky_number);
+            printf("[Press ENTER to continue]\n");
+            while(getchar()!='\n');
+            while(getchar()!='\n');
 			return lucky_number;
 			looper = 0;
 		} else {
-			printf("There were %d symbols. Enter another number!\n", LUCKY_NUMBER_END);
+			printf("\nThere were %d symbols. Enter another number!\n", LUCKY_NUMBER_END);
 		}
 	}	
 	return 0;
@@ -159,9 +162,10 @@ void battle(struct character *boss, struct character hero[TEAM_SIZE]){
 		printf("*** Round %d! ***\n", round_counter);
 		attack(&hero[current_hero], boss);
 		attack(boss, &hero[current_hero]);
-		printf("\n");
 		
 		round_counter++;
+        printf("[Press ENTER to continue]\n");
+        while(getchar()!='\n');
 	}
 }
 
