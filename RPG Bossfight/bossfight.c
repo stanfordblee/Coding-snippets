@@ -11,7 +11,7 @@
 #define TEAM_SIZE 3
 #define MAX_LENGTH 100
 #define LUCKY_NUMBER_START 1
-#define LUCKY_NUMBER_END 8
+#define LUCKY_NUMBER_END 5
 
 // Creating struct for character, used for both adventurer and boss
 struct character {
@@ -95,10 +95,10 @@ int randomise(void){
 	int looper = 1;
 	while (looper) {
 		printf("\nWhich symbol should the adventurers choose?\n");
-        printf("[Enter a number between 1 to 8]: ");
+        printf("[Enter a number between 1 - 5]: ");
 		scanf("%d", &lucky_number);
 		if (lucky_number >= LUCKY_NUMBER_START && lucky_number <= LUCKY_NUMBER_END) {
-			printf("\nThe adventurers chose the number %d!\n", lucky_number);
+			printf("\nThe adventurers chose the number %d! They call upon the power of the symbol and raise their weapons.\n", lucky_number);
             printf("[Press ENTER to continue]\n");
             while(getchar()!='\n');
             while(getchar()!='\n');
@@ -162,7 +162,9 @@ void battle(struct character *boss, struct character hero[TEAM_SIZE]){
 		// Simultaneous attack!
 		printf("*** Round %d! ***\n", round_counter);
 		attack(&hero[current_hero], boss);
-		attack(boss, &hero[current_hero]);
+        if(still_alive(boss, hero)){
+		    attack(boss, &hero[current_hero]);
+        }
 		
 		round_counter++;
         printf("[Press ENTER to continue]\n");
