@@ -1,4 +1,4 @@
-# QUICK START - WEBSCRAPER.SH
+# Quickstart: webscraper.sh
 
 - Webscraper.sh runs and executes all 6 scraper files (each designed for a different journal website)
 
