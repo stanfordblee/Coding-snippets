@@ -1,4 +1,4 @@
-# Coding_snippets
+# coding_snippets
 Collection of short personal projects written in various languages.
 
 1. **academic_webscraper**: web scraper that aggregates and summarises announcements from popular academic journal websites - *Python (pandas, BeautifulSoup), Zsh/Bash shell scripting (cron)*
