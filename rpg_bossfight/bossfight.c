@@ -83,7 +83,7 @@ int introduction(void){
     printf("\nThe band of adventurers finally reach the end of the lava maze and are faced with an ashen expanse.\n");
     printf("They hear a thunderous roar that trembles the charred ground beneath them. They steel themselves for the final battle.\n");
     printf("The King Black Dragon emerges from the flames.\n");
-    printf("\nThe heroes recall that there were 8 magic symbols inscribed at the entrance of the maze.");
+    printf("\nThe heroes recall that there were %d magic symbols inscribed at the entrance of the maze.\n", LUCKY_NUMBER_END);
     printf("One of these was the key to defeating the dragon, but they did not know which one.\n");
     printf("The dragon reared its armoured head and fixated its terrifying gaze on the three heroes, ready to strike.\n");
     return 0;
@@ -98,7 +98,8 @@ int randomise(void){
         printf("[Enter a number between 1 - 5]: ");
 		scanf("%d", &lucky_number);
 		if (lucky_number >= LUCKY_NUMBER_START && lucky_number <= LUCKY_NUMBER_END) {
-			printf("\nThe adventurers chose the number %d! They call upon the power of the symbol and raise their weapons.\n", lucky_number);
+			printf("\nThe adventurers chose the number %d!\n", lucky_number);
+			printf("They call upon the power of the symbol and raise their weapons.\n");
             printf("[Press ENTER to continue]\n");
             while(getchar()!='\n');
             while(getchar()!='\n');
