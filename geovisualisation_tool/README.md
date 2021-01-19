@@ -1,1 +1,1 @@
-Project currently not available publicly - will update soon
+Project currently not available publicly - will update soon.
